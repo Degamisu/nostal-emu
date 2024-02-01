@@ -1,4 +1,3 @@
-// cpu.cpp
 #include "cpu.h"
 
 CPU::CPU() {
@@ -17,21 +16,21 @@ void CPU::init() {
 
 void CPU::executeCycle() {
     // Fetch the opcode from memory
-    uint8_t opcode = memory[pc];
+    opcode = memory[pc];
     pc++; // Increment the program counter
 
     // Handle different opcodes
     switch (opcode) {
-        case 0xEA: // NOP (No Operation)
+        case NOP: // NOP (No Operation)
             break;
-        case 0xA9: // LDA (Load Accumulator)
+        case LDA: // LDA (Load Accumulator)
             a = memory[pc];
             pc++;
             break;
-        case 0x85: // STA (Store Accumulator)
+        case STA: // STA (Store Accumulator)
             memory[pc - 1] = a;
             break;
-        case 0x00: // BRK (Break)
+        case BRK: // BRK (Break)
             // Implement the BRK instruction, including pushing the program counter and status onto the stack
             // and setting the Break flag
             memory[sp--] = pc & 0xFF; // Push LSB of PC onto the stack
@@ -40,15 +39,15 @@ void CPU::executeCycle() {
             status |= 0x01; // Set the Break flag
             pc = memory.at(0xFFFE) | (memory.at(0xFFFF) << 8); // Jump to the reset vector
             break;
-        case 0x4: // JMPJump)
-        // Implement the jmp by jumping to the address in the following two bytes
-            uint16_t address = memory[pc] | (memory[pc + 1] << 8);
+        case JMP: // JMP (Jump)
+            // Implement the jmp by jumping to the address in the following two bytes
+            address = memory[pc] | (memory[pc + 1] << 8);
             pc += 2;
             pc = address;
             break;
-        case 0x6: // JSRJump to Suboutine)
+        case JSR: // JSR (Jump to Suboutine)
             // Implement the jsr by pushing the return onto the stack and then jumping to the
-            uint16_t address = memory[pc++] | (memory[pc++] << 8);
+            address = memory[pc++] | (memory[pc++] << 8);
             memory[sp--] = (pc + 1) & 0xFF; // Push LSB of return address onto the stack
             memory[sp--] = ((pc + 1) >> 8) & 0xFF; // Push MSB of return address onto the stack
             pc = address;
