@@ -15,6 +15,17 @@ void CPU::init() {
 }
 
 void CPU::executeCycle() {
-    // TODO: Implement CPU cycle logic here
-    // For simplicity, let's leave it empty for now
+    // Fetch the opcode from memory
+    uint8_t opcode = memory[pc];
+    pc++; // Increment the program counter
+
+    // Handle different opcodes
+    switch (opcode) {
+        case 0x00: // NOP (No Operation)
+            break;
+        // Add more opcodes here
+        default:
+            // Handle illegal opcodes
+            break;
+    }
 }
