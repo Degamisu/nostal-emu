@@ -29,6 +29,7 @@ If you are unfamilliar with `qt`, `qt` is a GUI framework that makes this proces
 ```bash
 sudo apt-get update
 sudo apt-get install qtbase5-dev
+sudo apt-get install libgtest-dev
 ```
 
 **Clone `Nostal`**
