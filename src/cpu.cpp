@@ -40,6 +40,14 @@ void CPU::executeCycle() {
             status |= 0x01; // Set the Break flag
             pc = memory.at(0xFFFE) | (memory.at(0xFFFF) << 8); // Jump to the reset vector
             break;
+        case 0x4: // JMPJump)
+        // Implement the jmp by jumping to the address in the following two bytes
+            uint16_t address = memory[pc] | (memory[pc + 1] << 8);
+            pc += 2;
+            pc = address;
+            break;
+
+            
         default:
             // Handle illegal opcodes
             break;
