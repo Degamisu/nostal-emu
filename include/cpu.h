@@ -1,7 +1,7 @@
 #ifndef CPU_H
 #define CPU_H
 
-#include <vector>
+#include <cstdint>
 
 class CPU {
 public:
@@ -14,24 +14,24 @@ private:
     uint8_t a;
     uint8_t x;
     uint8_t y;
-    uint16_t sp;
-    uint16_t status;
-    uint16_t pc;
+    unsigned short sp;
+    unsigned short status;
+    unsigned short pc;
 
     // Memory-mapped Registers
-    std::vector<uint8_t> memory;
+    unsigned char memory[0x10000];
 
     // Instruction Set
-    #define NOP 0xEA
-    #define LDA 0xA9
-    #define STA 0x85
-    #define BRK 0x00
-    #define JMP 0x4C
-    #define JSR 0x20
+    constexpr unsigned char NOP = 0xEA;
+    constexpr unsigned char LDA = 0xA9;
+    constexpr unsigned char STA = ``````  0x85;
+    constexpr unsigned char BRK = 0x00;
+    constexpr unsigned char JMP = 0xC;
+    constexpr unsigned char JSR = 0x0;
 
     // Instruction Operands
-    uint8_t opcode;
-    uint16_t address;
+    unsigned char opcode;
+    unsigned short address;
 };
 
 #endif
