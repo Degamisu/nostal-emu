@@ -1,3 +1,6 @@
+> [!NOTE]
+> This is the **only** legal way to play ROMS. You _must_ have your own cartridge.
+
 > [!IMPORTANT]
 > ### Prerequisites:
 >
