@@ -46,6 +46,13 @@ void CPU::executeCycle() {
             pc += 2;
             pc = address;
             break;
+        case 0x6: // JSRJump to Suboutine)
+            // Implement the jsr by pushing the return onto the stack and then jumping to the
+            uint16_t address = memory[pc++] | (memory[pc++] << 8);
+            memory[sp--] = (pc + 1) & 0xFF; // Push LSB of return address onto the stack
+            memory[sp--] = ((pc + 1) >> 8) & 0xFF; // Push MSB of return address onto the stack
+            pc = address;
+            break;
 
             
         default:
