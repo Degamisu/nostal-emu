@@ -1,14 +1,14 @@
 # NostalEmu
 
 > [!WARNING]
-> `nostal-emu` or any other person(s) who are active in this project **WILL NOT** give ROMS to those who ask! For more information, Visit [Legal](LEGAL.md)
+> `nostal-emu` or any other person(s) who are active in this project **WILL NOT** distribute ROMS to those who ask! For more information, Visit [Legal](LEGAL.md). For information on how to dump ROMS, visit [ROMS](ROMS.md)
 
 ## About
 
 > [!NOTE]
 > NostalEmu stands for Nostalgia Emulator!
 
-A QT based `NES` emulator! This project is being worked on by one person! You can help contribute by opening `issues`, or making `pull requests`!
+`nostal-emu` is an exciting project currently under development by a single individual. This QT-based NES emulator is designed to bring the classic gaming experience of the Nintendo Entertainment System to modern platforms.
 
 ---
 
