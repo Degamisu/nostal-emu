@@ -22,7 +22,7 @@ void CPU::executeCycle() {
 
     // Handle different opcodes
     switch (opcode) {
-        case 0x00: // NOP (No Operation)
+        case 0xEA: // NOP (No Operation)
             break;
         case 0xA9: // LDA (Load Accumulator)
             a = memory[pc];
