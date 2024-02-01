@@ -1,14 +1,14 @@
 # CMakeLists.txt
 cmake_minimum_required(VERSION 3.10)
-project(nes-emulator C)
+project(nes-emulator-qt CXX)
 
-set(CMAKE_C_STANDARD 11)
+set(CMAKE_CXX_STANDARD 11)
 
-# Include GTK
-find_package(PkgConfig REQUIRED)
-pkg_check_modules(GTK3 REQUIRED gtk+-3.0)
+# Find the Qt5 package
+find_package(Qt5 COMPONENTS Widgets REQUIRED)
 
-add_executable(nes-emulator src/main.c src/cpu.c)
-target_link_libraries(nes-emulator ${GTK3_LIBRARIES})
-include_directories(${GTK3_INCLUDE_DIRS})
-target_include_directories(nes-emulator PUBLIC include)  # Add this line
+# Add your source files
+add_executable(nes-emulator-qt src/main.cpp src/cpu.cpp src/cpu.h)
+
+# Link against Qt5
+target_link_libraries(nes-emulator-qt PRIVATE Qt5::Widgets)
